@@ -4,6 +4,15 @@ All notable changes to this project are documented here. The format follows
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project
 adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] — 2026-06-06
+
+Archival release for DOI minting. No source/behavior changes from 0.1.0.
+
+### Added
+
+- `.zenodo.json` providing native Zenodo metadata for DOI archival (the
+  dual-licensed `CITATION.cff` is not relied on for the Zenodo record).
+
 ## [0.1.0] — 2026-06-05
 
 Initial public-candidate release. Built to the corrected primitive standard;

@@ -1,0 +1,26 @@
+{
+  "title": "banking-agent-audit: Governance Patterns for Autonomous AI Agents in Regulated Banking",
+  "description": "Reference governance patterns, schemas, and runnable implementations for audit-ready autonomous AI agents in regulated banking. Ships five corrected governance primitives (an autonomy-ladder level-gate, a fail-closed un-self-clearable sovereign veto, a tamper-evident hash-chain ledger with witness-anchored regeneration detection, a DEFCON transition-direction guard, and an effective-challenge harness) plus two implemented and tested banking controls (model-risk validation gated on attested challenger independence, and an ECOA/Regulation B section 1002.9 adverse-action gate with the FCRA section 615 overlay) and a sanctions/AML disposition-workflow pattern that bundles no sanctions list and screens against a pluggable, deployer-wired list provider. Reference IP for adoption, not a control operating in production; not legal or compliance advice.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "version": "v0.1.1",
+  "creators": [
+    {
+      "name": "Bhaduri, Kunjar",
+      "affiliation": "North Texas Capital Investments"
+    }
+  ],
+  "keywords": [
+    "AI governance",
+    "autonomous agents",
+    "banking",
+    "model risk management",
+    "fair lending",
+    "adverse action",
+    "BSA/AML",
+    "audit trail",
+    "human-in-the-loop",
+    "compliance"
+  ]
+}

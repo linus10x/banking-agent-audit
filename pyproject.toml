@@ -12,7 +12,7 @@ exclude = ["tests*", "scripts*", "docs*", "examples*"]
 
 [project]
 name = "banking-agent-audit"
-version = "0.1.0"
+version = "0.1.1"
 description = "Governance patterns for autonomous AI agents in regulated banking"
 readme = "README.md"
 license = { text = "MIT OR Apache-2.0" }
