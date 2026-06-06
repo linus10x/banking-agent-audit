@@ -11,10 +11,11 @@ against real public enforcement actions, and honest about what it implements
 versus what it documents.
 
 [![CI](https://github.com/linus10x/banking-agent-audit/actions/workflows/ci.yml/badge.svg)](https://github.com/linus10x/banking-agent-audit/actions/workflows/ci.yml)
+[![DOI](https://zenodo.org/badge/1260859533.svg)](https://doi.org/10.5281/zenodo.20564584)
 ![coverage](https://img.shields.io/badge/coverage-%E2%89%A590%25-brightgreen)
 ![python](https://img.shields.io/badge/python-3.12%2B-blue)
 ![license](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue)
-![status](https://img.shields.io/badge/status-beta%20v0.1.0-orange)
+![status](https://img.shields.io/badge/status-beta%20v0.1.1-orange)
 
 ---
 
@@ -210,8 +211,8 @@ out of scope.
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). A Zenodo DOI is minted at release — see
-[`docs/DOI_PLAN.md`](docs/DOI_PLAN.md) for the current status.
+Archived on Zenodo — concept DOI [`10.5281/zenodo.20564584`](https://doi.org/10.5281/zenodo.20564584)
+(resolves to the latest version). See [`CITATION.cff`](CITATION.cff).
 
 ---
 

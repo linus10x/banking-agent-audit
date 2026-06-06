@@ -58,5 +58,5 @@ keywords:
   - compliance
 license: "MIT OR Apache-2.0"
 version: "0.1.1"
-date-released: "2026-06-05"
-# doi: minted at first public release (Zenodo concept DOI) — owner gate.
+date-released: "2026-06-06"
+doi: "10.5281/zenodo.20564584"  # concept DOI (resolves to the latest version)
