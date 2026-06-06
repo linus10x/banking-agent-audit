@@ -1,0 +1,121 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["banking_agent_audit*"]
+exclude = ["tests*", "scripts*", "docs*", "examples*"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[project]
+name = "banking-agent-audit"
+version = "0.1.0"
+description = "Governance patterns for autonomous AI agents in regulated banking"
+readme = "README.md"
+license = { text = "MIT OR Apache-2.0" }
+authors = [
+    { name = "Kunjar Bhaduri", email = "130852583+linus10x@users.noreply.github.com" }
+]
+keywords = [
+    "ai-governance",
+    "autonomous-agents",
+    "banking",
+    "model-risk-management",
+    "regulated-ai",
+    "audit-trail",
+    "fair-lending",
+    "adverse-action",
+    "bsa-aml",
+    "human-in-the-loop",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Security",
+    "Typing :: Typed",
+]
+requires-python = ">=3.12"
+dependencies = []  # Zero runtime dependencies.
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "pytest-cov>=6.0",
+    "mypy>=1.14",
+    "ruff>=0.8",
+    "pre-commit>=3.7",
+]
+test-property = ["hypothesis>=6.115"]
+security-dev = [
+    "bandit[toml]>=1.7",
+    "pip-audit>=2.7",
+]
+
+[project.scripts]
+banking-audit = "banking_agent_audit.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/linus10x/banking-agent-audit"
+Repository = "https://github.com/linus10x/banking-agent-audit"
+Issues = "https://github.com/linus10x/banking-agent-audit/issues"
+Changelog = "https://github.com/linus10x/banking-agent-audit/blob/main/CHANGELOG.md"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "ANN", "B", "SIM"]
+ignore = ["ANN401"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["ANN"]
+"tests/golden/corpus.py" = ["ANN", "E501"]  # data fixtures: unavoidable long URLs + source strings
+"examples/*" = ["ANN"]
+"scripts/*" = ["ANN", "SIM", "N816", "E501"]  # mutation anchors must match source byte-for-byte
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--tb=short -q"
+markers = [
+    "slow: long-running tests (e.g. hypothesis fuzz harnesses); skipped via `-m 'not slow'` for fast local iteration",
+    "golden: real-world golden-corpus fixtures sourced from public enforcement actions",
+]
+
+[tool.mutmut]
+# Focused mutation pass on the highest-value security primitive. Run with the
+# fast hypothesis profile: HYPOTHESIS_PROFILE=fast python -m mutmut run
+paths_to_mutate = ["src/banking_agent_audit/governance/audit_chain.py"]
+tests_dir = ["tests/"]
+
+[tool.coverage.run]
+source = ["src/banking_agent_audit"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+]

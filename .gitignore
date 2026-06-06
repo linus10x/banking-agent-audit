@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+*.egg
+
+# Test / coverage
+.pytest_cache/
+.hypothesis/
+.coverage
+coverage.xml
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+mutmut-cache/
+.mutmut-cache
+
+# Env
+.venv/
+venv/
+.env
+
+# OS
+.DS_Store
+
+# mutmut scratch
+mutants/

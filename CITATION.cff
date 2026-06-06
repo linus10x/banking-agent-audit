@@ -1,0 +1,62 @@
+cff-version: 1.2.0
+message: >-
+  If you use these patterns in your systems, research, or publications,
+  please cite this repository using the metadata below.
+type: software
+title: >-
+  banking-agent-audit: Governance Patterns for Autonomous AI Agents
+  in Regulated Banking
+authors:
+  - family-names: Bhaduri
+    given-names: Kunjar
+    affiliation: North Texas Capital Investments
+    website: "https://linkedin.com/in/kunjarbhaduri"
+repository-code: "https://github.com/linus10x/banking-agent-audit"
+url: "https://github.com/linus10x/banking-agent-audit"
+abstract: >-
+  Reference governance patterns, schemas, and runnable implementations for
+  audit-ready autonomous AI agents in regulated banking. Ships five corrected
+  governance primitives — an autonomy-level promotion gate (A0 through A4) that
+  refuses promotion on unmet lower-rung controls and requires independent
+  attestation of its inputs; a fail-closed sovereign-veto kill switch whose
+  clearance requires an authenticated non-agent principal and which an agent
+  cannot self-clear; a tamper-evident hash-chain ledger whose verifier branches
+  the genesis seed so deployer-keyed and legacy chains both verify, with
+  end-to-end regeneration detected via a non-optional production-mode witness
+  anchor; a DEFCON risk-state machine with a transition-direction guard that
+  forbids one-call de-escalation from HALT; and an effective-challenge harness
+  that rejects self-challenge in code and records an operator independence
+  attestation. On top of the primitives it implements two tested banking
+  controls — model-risk validation gated on attested challenger independence,
+  and an ECOA/Regulation B section 1002.9 adverse-action gate with the FCRA
+  section 615 overlay — plus a sanctions/AML disposition-workflow pattern that
+  bundles no sanctions list and screens against a pluggable, deployer-wired list
+  provider. Sub-verticals for mortgage (HMDA/Regulation C, the interagency AVM
+  quality-control standards), consumer credit (Truth in Lending/Regulation Z),
+  and deposit/payments fraud (Regulation E) ship as documented patterns with
+  primary-source citations. The test suite includes property-based fuzzing, five
+  committed adversarial primitive probes, a golden corpus of real public
+  banking enforcement actions, and a mutation pass over the security predicates.
+  Maps to primary banking regulatory anchors including the Bank Secrecy Act
+  (31 U.S.C. 5311 et seq.), ECOA/Regulation B (12 CFR 1002.9), the Fair Credit
+  Reporting Act (15 U.S.C. 1681m), the Home Mortgage Disclosure Act
+  (Regulation C), the Truth in Lending Act (Regulation Z), Regulation E, the
+  interagency Automated Valuation Model quality-control rule, and the 2026
+  revised interagency Model Risk Management guidance (OCC Bulletin 2026-13,
+  superseding SR 11-7). This is reference IP for adoption, not a control
+  operating in production; the sanctions surface ships no list.
+keywords:
+  - AI governance
+  - autonomous agents
+  - banking
+  - model risk management
+  - fair lending
+  - adverse action
+  - BSA/AML
+  - audit trail
+  - human-in-the-loop
+  - compliance
+license: "MIT OR Apache-2.0"
+version: "0.1.0"
+date-released: "2026-06-05"
+# doi: minted at first public release (Zenodo concept DOI) — owner gate.
