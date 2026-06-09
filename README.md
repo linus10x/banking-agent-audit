@@ -17,6 +17,23 @@ versus what it documents.
 ![license](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue)
 ![status](https://img.shields.io/badge/status-beta%20v0.1.1-orange)
 
+**182 tests · ~99% coverage (≥90% gate) · 13/13 mutation kill · golden corpus of 8 real CFPB/DOJ/FinCEN matters · zero runtime deps · `mypy --strict` · 5 SHA-pinned CI workflows.**
+
+---
+
+## Part of the Autonomy Ladder™ family
+
+Six co-equal regulated-vertical reference libraries implementing the **Autonomy Ladder** — a governance framework for autonomous AI in regulated operations (A0→A4, every rung demotable). **Framework + whitepaper: [autonomy-ladder.io](https://autonomy-ladder.io).**
+
+| Vertical | Library |
+|---|---|
+| Cross-vertical financial services | [`finserv-agent-audit`](https://github.com/linus10x/finserv-agent-audit) |
+| Banking (model risk · ECOA/Reg B · BSA/AML/OFAC) | **[`banking-agent-audit`](https://github.com/linus10x/banking-agent-audit)** |
+| Payments (OFAC · Reg E · rail finality) | [`payments-agent-audit`](https://github.com/linus10x/payments-agent-audit) |
+| Health-insurance payer (UM · prior auth · appeals) | [`payer-agent-audit`](https://github.com/linus10x/payer-agent-audit) |
+| SEC-registered investment advisers (Advisers Act §206) | [`private-capital-agent-audit`](https://github.com/linus10x/private-capital-agent-audit) |
+| Commercial real estate | [`cre-agent-audit`](https://github.com/linus10x/cre-agent-audit) |
+
 ---
 
 ## What this is — and what it is not
@@ -125,7 +142,7 @@ library's source.
 
 | Obligation | Sub-vertical | Claim layer | Primary source |
 |---|---|---|---|
-| Model validation via effective challenge | Capital-markets / model risk | **Implemented** | OCC Bulletin 2026-13 (2026 revised MRM guidance) |
+| Model validation via effective challenge | Capital-markets / model risk | **Implemented** | OCC Bulletin 2026-13 (2026 revised MRM guidance; verified as of June 2026) |
 | ECOA / Reg B §1002.9 adverse-action notice + FCRA §615 | Consumer credit | **Implemented** | 12 CFR §1002.9; 15 U.S.C. §1681m |
 | Sanctions / AML disposition workflow (no bundled list) | AML / sanctions | **Deployer-wired pattern** | 31 U.S.C. §5318(h)/(g); 31 CFR Ch. X (BSA), Ch. V (OFAC) |
 | HMDA / Reg C loan-level disclosure | Mortgage | Documented pattern | 12 CFR Part 1003 |
@@ -135,7 +152,8 @@ library's source.
 
 Regulators in scope: Federal Reserve · OCC · FDIC · CFPB (consumer credit) ·
 FinCEN and OFAC (AML/sanctions). The model-risk concept of **effective
-challenge** crystallized in SR 11-7 (rescinded 2026-04-17) and is carried
+challenge** crystallized in SR 11-7 (rescinded 2026-04-17; verified as of
+June 2026) and is carried
 forward in principle under the 2026 revised interagency Model Risk Management
 guidance; that guidance states generative and agentic AI models are not within
 its scope, so deployers of such models demonstrate bounded operation through
@@ -170,9 +188,12 @@ the real world:
   asserting the corrected guarantee holds (one probe per primitive; AL-PROBE-02
   is the assurance home for veto un-self-clearability).
 - **A golden corpus** of real, public, primary-sourced banking enforcement
-  actions (CFPB/DOJ redlining, ECOA/Reg B, BSA/AML/OFAC, an algorithmic-model
-  fair-lending matter) turned into fixtures that assert how the controls govern
-  each category. See [`tests/golden/`](tests/golden/).
+  actions turned into fixtures that assert how the controls govern each
+  category. The platform is the proof: the suite runs against named CFPB / DOJ /
+  FinCEN matters of record — **Trustmark, City National, Trident Mortgage,
+  Washington Trust, Citibank, Fifth Third, Townstone, and TD Bank** — spanning
+  redlining, ECOA / Reg B adverse action, fair-lending model use, and BSA / AML /
+  OFAC failures. See [`tests/golden/`](tests/golden/).
 - **A mutation pass** ([`scripts/mutation_pass.py`](scripts/mutation_pass.py))
   that disables each security predicate and confirms a test kills it (100%).
 - **Coverage gate** at 90% (currently ~99%), with `ruff`, `mypy --strict`,
