@@ -1,23 +1,39 @@
 # banking-agent-audit
 
-**Governance patterns for autonomous AI agents in regulated banking.**
-
-Reference IP for adoption — tamper-evident audit logging, a human-in-the-loop
-kill switch, an autonomy-promotion gate, a risk-state machine, and an
-effective-challenge harness, plus two implemented banking controls
-(model-risk validation and an ECOA/Reg B adverse-action gate) and a sanctions
-disposition-workflow pattern. Built to a corrected primitive standard, tested
-against real public enforcement actions, and honest about what it implements
-versus what it documents.
+Governance patterns for autonomous AI agents in regulated banking: five corrected primitives + tested model-risk effective-challenge & ECOA/Reg B adverse-action controls + a no-bundled-list sanctions workflow. Reference IP — MIT/Apache-2.0.
 
 [![CI](https://github.com/linus10x/banking-agent-audit/actions/workflows/ci.yml/badge.svg)](https://github.com/linus10x/banking-agent-audit/actions/workflows/ci.yml)
-[![DOI](https://zenodo.org/badge/1260859533.svg)](https://doi.org/10.5281/zenodo.20564584)
-![coverage](https://img.shields.io/badge/coverage-%E2%89%A590%25-brightgreen)
-![python](https://img.shields.io/badge/python-3.12%2B-blue)
+![coverage](https://img.shields.io/badge/coverage-%E2%89%A599%25-brightgreen)
+![tests](https://img.shields.io/badge/tests-182-blue)
 ![license](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue)
-![status](https://img.shields.io/badge/status-beta%20v0.1.1-orange)
+![python](https://img.shields.io/badge/python-3.12%2B-blue)
+[![DOI](https://zenodo.org/badge/1260859533.svg)](https://doi.org/10.5281/zenodo.20564584)
+[![Autonomy Ladder family](https://img.shields.io/badge/Autonomy%20Ladder-family-0b1f3a)](https://github.com/linus10x/autonomy-ladder-libraries)
 
-**182 tests · ~99% coverage (≥90% gate) · 13/13 mutation kill · golden corpus of 8 real CFPB/DOJ/FinCEN matters · zero runtime deps · `mypy --strict` · 5 SHA-pinned CI workflows.**
+> **What this is:** a reference governance library that encodes ECOA / Reg B adverse-action, model-risk effective-challenge, and OFAC/BSA controls an autonomous banking agent must operate under, as runnable, tested checks.
+> **What this is not:** reference IP for adoption, not a control deployed inside a bank today — verify every citation against its primary source and qualified counsel.
+> **Who this is for:** a bank's model-risk, fair-lending, or compliance lead standing up AI/agentic decisioning — or a lab / cloud FSI applied lead who needs a falsifiable governance baseline.
+
+## 30-second tour
+
+- **Vertical:** banking — model risk · ECOA/Reg B adverse action · BSA/AML/OFAC.
+- **Decision classes encoded:** ECOA/Reg B §1002.9 adverse-action notice (+ FCRA §615 overlay) and model-risk effective-challenge — both **implemented and tested**; a sanctions disposition workflow that ships **no list**.
+- **Primary rule cites:** ECOA / Reg B **12 CFR §1002.9** · FCRA §615 **15 U.S.C. §1681m** · BSA **31 U.S.C. §5318(h)/(g)** · OFAC **31 CFR Ch. V** · 2026 revised interagency Model Risk Management guidance (OCC Bulletin 2026-13).
+- **Assurance:** 182 tests · ~99% coverage (≥90% gate) · 13/13 mutation kill · zero runtime deps · `mypy --strict`.
+- **Golden corpus:** real CFPB / DOJ / FinCEN matters — **Trustmark, City National, Trident Mortgage, Washington Trust, Citibank, Fifth Third, Townstone, TD Bank**.
+
+## Read me first
+
+1. [`tests/test_adverse_action_gate.py`](tests/test_adverse_action_gate.py) — the single best illustrative test: the ECOA/Reg B adverse-action gate turned into runnable checks.
+2. [`WORKED_EXAMPLE.md`](WORKED_EXAMPLE.md) — one concrete adverse-action flow, end to end (with a runnable companion script).
+3. The framework: [autonomy-ladder.io](https://autonomy-ladder.io) — and [`AUTONOMY_LADDER.md`](AUTONOMY_LADDER.md) for how this library's primitives map to the A0→A4 rungs.
+
+## Install
+
+```bash
+git clone https://github.com/linus10x/banking-agent-audit && cd banking-agent-audit
+pip install -e .
+```
 
 ---
 
@@ -257,3 +273,17 @@ option.
 ## Author
 
 Kunjar Bhaduri — North Texas Capital Investments.
+
+---
+
+## The Autonomy Ladder family
+
+One of six libraries in the **[Autonomy Ladder family](https://github.com/linus10x/autonomy-ladder-libraries)** —
+[finserv](https://github.com/linus10x/finserv-agent-audit) ·
+[banking](https://github.com/linus10x/banking-agent-audit) ·
+[payments](https://github.com/linus10x/payments-agent-audit) ·
+[payer](https://github.com/linus10x/payer-agent-audit) ·
+[private-capital](https://github.com/linus10x/private-capital-agent-audit) ·
+[cre](https://github.com/linus10x/cre-agent-audit) agent-audit.
+Shared framework (A0→A4, every rung demotable), license posture (MIT OR Apache-2.0),
+and evidence discipline. Framework + whitepaper: [autonomy-ladder.io](https://autonomy-ladder.io).
