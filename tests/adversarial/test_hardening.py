@@ -1,4 +1,4 @@
-"""Regression guards for the beat-the-shit security findings (committed).
+"""Regression guards for the adversarial security findings (committed).
 
 Each test reproduces a finding from the adversarial security chamber and asserts
 the hardened behavior. A failure here means a previously-closed bypass reopened.
